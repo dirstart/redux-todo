@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './reset.css';
+import './app.less';
 
 class Index extends Component {
     constructor(props) {
@@ -11,7 +12,8 @@ class Index extends Component {
     }
     render() {
         return (<div>
-            123
+            <h1>123</h1>
+            <span>123</span>
         </div>)
     }
 }
