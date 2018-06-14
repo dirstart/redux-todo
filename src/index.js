@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import store from './redux/store';
 
 import './reset.css';
-import './app.less';
+import './index.less';
 
 class Index extends Component {
     constructor(props) {

@@ -13,7 +13,7 @@ import {makeMiracle, startGrow} from './actions';
 
 let store = createStore(YourLife);
 
-// 监听人生的每一次变化
+// 监听人生的每一次变化，如果单独调用一次这个函数则会 接触监听。 设置如此，极简。
 const unsubscribe = store.subscribe(() => {
     console.log(store.getState());
 });
@@ -25,6 +25,4 @@ store.dispatch(makeMiracle('哈哈哈'));
 store.dispatch(startGrow(PEOPLETAG.adult));
 
 unsubscribe();
-
-store.dispatch(makeMiracle('哈哈哈'));
 

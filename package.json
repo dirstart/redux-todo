@@ -52,6 +52,7 @@
   "devDependencies": {
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
+    "react-redux": "^5.0.7",
     "redux": "^4.0.0"
   },
   "jest": {
