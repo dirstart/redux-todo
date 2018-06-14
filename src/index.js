@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import store from './redux/store';
+
 import './reset.css';
 import './app.less';
 
