@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import store from './redux/store';
 
+import UseHigher from './higher/UseHigher';
+
 import './reset.css';
 import './index.less';
 
@@ -14,8 +16,7 @@ class Index extends Component {
     }
     render() {
         return (<div>
-            <h1>123</h1>
-            <span>123</span>
+            <UseHigher/>
         </div>)
     }
 }
