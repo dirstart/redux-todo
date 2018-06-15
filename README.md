@@ -23,9 +23,27 @@
 这里参考 react 小书的（要付钱哦）：http://huziketang.mangojuice.top/books/react/lesson28
 也可以直接看我代码 src 层的 higher/simple 中的 CreateHigher、UseHigher 文件。
 
+* CreateHigher：一个函数，参数是 （组件，需要从本地获取的属性），返回一个带 props 的组件。
+> 完成了获取本地数据的 逻辑。
+
+* UseHigher：先定义了一个组件，此后使用CreateHigher创建了一个我们真正需要的组件(相当于类的实例化)。
+
+#### 总结：当有两个组件都需要从 本地 localStorage 加载相关的数据，上述的高阶组件就能很好地 实现逻辑的复用。复用的同时也将 获取数据的 逻辑和纯组件 解耦。
+> 一举两得。
+
 ### 2.然后我们通过对数据的剥离，构造纯组件，降低耦合性。
 
-拿我们之前的 redux 例子来 架构一下吧~
+||展示组件|容器(高级)组件|
+|:-|:-|:-|
+|作用|展示样式和骨架|描述如何运行？数据获取/状态更新|
+|直接使用redux？|否|是|
+|数据来源|props|监听redux|
+|数据修改|调用props中的回调函数|由redux派发|
+|调用方式(这个我没理解)|手动|由react-redux生成|
+
+上面贴了一张官网的图(http://www.redux.org.cn/docs/basics/UsageWithReact.html)，拿我们之前的 redux 例子来 架构一下吧~
+
+我们之前的 reducer 有什么内容呢？ 创造奇迹 和 通过成长改变人的状态 和 ~~添加女朋友(不存在的，已PASS)~~
 
 *  *  *
 

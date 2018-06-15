@@ -6,14 +6,8 @@ import CreateHigher from './CreateHigher';
 class InputUsername extends Component {
     render() { 
         return (<div>
-            <input value={this.props.data}
-                onChange={this.handleChange.bind(this)}
-            />
+            <input value={this.props.data || ''} />
         </div>)  
-    }
-
-    handleChange() {
-        console.log('123');
     }
 }
 

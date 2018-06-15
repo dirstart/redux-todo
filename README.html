@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h4 id="%E5%85%B6%E5%AE%9E-redux-%E7%9C%9F%E6%AD%A3%E8%AE%A9%E4%BA%BA%E6%84%9F%E5%88%B0%E6%B7%B7%E4%B9%B1%E7%9A%84%E8%BF%98%E6%98%AF%E5%9C%A8-react-redux-%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%AD%E3%80%82">其实 redux 真正让人感到混乱的还是在 react-redux 的使用中。</h4>
+<p>也不是说混乱，主要是网上 推崇 <strong>最佳实践</strong>。学习一个新东西的时候，本来就很陌生，上来就用最佳实践，当然让人摸不着头脑。</p>
+<p>其实搞定 react-redux 主要分两点：</p>
+<ul>
+<li>容器组件 和 展示组件 的最佳实践  (难就难在这里，系统架构层次的难)</li>
+</ul>
+<blockquote>
+<p>办法：想办法精通react  props 的传值。</p>
+</blockquote>
+<ul>
+<li>另外一个就是 react-redux 的固定用法了。</li>
+</ul>
+<hr>
+<h3 id="1%E6%95%B0%E6%8D%AE%E4%BB%8E%E5%93%AA%E9%87%8C%E6%9D%A5%EF%BC%9F-%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6%E5%AE%B9%E5%99%A8%E7%BB%84%E4%BB%B6%E5%85%B6%E5%AE%9E%E5%B0%B1%E6%98%AF%E8%A7%A3%E5%86%B3%E8%BF%99%E4%B9%88%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98%E3%80%82-----%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%EF%BC%81%EF%BC%81%EF%BC%81%E5%87%BD%E6%95%B0%EF%BC%81%EF%BC%81%EF%BC%81">1.数据从哪里来？  高阶组件(容器组件)其实就是解决这么一个问题。   --- 高阶组件是一个函数！！！函数！！！</h3>
+<blockquote>
+<p>严格地区分了各国人的进入，就能防止罪犯的逃逸。</p>
+</blockquote>
+<p>你们懂的，如果希望稳定，有时候就需要滴水不漏。</p>
+<p>单独举个例子区分一下，数据的来源假设有三种</p>
+<ul>
+<li>localStorage</li>
+<li>调用web接口获得的</li>
+<li>state里面的数据</li>
+</ul>
+<p>这里参考 react 小书的（要付钱哦）：http://huziketang.mangojuice.top/books/react/lesson28
+也可以直接看我代码 src 层的 higher/simple 中的 CreateHigher、UseHigher 文件。</p>
+<ul>
+<li>CreateHigher：一个函数，参数是 （组件，需要从本地获取的属性），返回一个带 props 的组件。</li>
+</ul>
+<blockquote>
+<p>完成了获取本地数据的 逻辑。</p>
+</blockquote>
+<ul>
+<li>UseHigher：先定义了一个组件，此后使用CreateHigher创建了一个我们真正需要的组件(相当于类的实例化)。</li>
+</ul>
+<h4 id="%E6%80%BB%E7%BB%93%EF%BC%9A%E5%BD%93%E6%9C%89%E4%B8%A4%E4%B8%AA%E7%BB%84%E4%BB%B6%E9%83%BD%E9%9C%80%E8%A6%81%E4%BB%8E-%E6%9C%AC%E5%9C%B0-localstorage-%E5%8A%A0%E8%BD%BD%E7%9B%B8%E5%85%B3%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%8C%E4%B8%8A%E8%BF%B0%E7%9A%84%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6%E5%B0%B1%E8%83%BD%E5%BE%88%E5%A5%BD%E5%9C%B0-%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91%E7%9A%84%E5%A4%8D%E7%94%A8%E3%80%82%E5%A4%8D%E7%94%A8%E7%9A%84%E5%90%8C%E6%97%B6%E4%B9%9F%E5%B0%86-%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E7%9A%84-%E9%80%BB%E8%BE%91%E5%92%8C%E7%BA%AF%E7%BB%84%E4%BB%B6-%E8%A7%A3%E8%80%A6%E3%80%82">总结：当有两个组件都需要从 本地 localStorage 加载相关的数据，上述的高阶组件就能很好地 实现逻辑的复用。复用的同时也将 获取数据的 逻辑和纯组件 解耦。</h4>
+<blockquote>
+<p>一举两得。</p>
+</blockquote>
+<h3 id="2%E7%84%B6%E5%90%8E%E6%88%91%E4%BB%AC%E9%80%9A%E8%BF%87%E5%AF%B9%E6%95%B0%E6%8D%AE%E7%9A%84%E5%89%A5%E7%A6%BB%EF%BC%8C%E6%9E%84%E9%80%A0%E7%BA%AF%E7%BB%84%E4%BB%B6%EF%BC%8C%E9%99%8D%E4%BD%8E%E8%80%A6%E5%90%88%E6%80%A7%E3%80%82">2.然后我们通过对数据的剥离，构造纯组件，降低耦合性。</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">展示组件</th>
+<th style="text-align:left">容器(高级)组件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">作用</td>
+<td style="text-align:left">展示样式和骨架</td>
+<td style="text-align:left">描述如何运行？数据获取/状态更新</td>
+</tr>
+<tr>
+<td style="text-align:left">直接使用redux？</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">是</td>
+</tr>
+<tr>
+<td style="text-align:left">数据来源</td>
+<td style="text-align:left">props</td>
+<td style="text-align:left">监听redux</td>
+</tr>
+<tr>
+<td style="text-align:left">数据修改</td>
+<td style="text-align:left">调用props中的回调函数</td>
+<td style="text-align:left">由redux派发</td>
+</tr>
+<tr>
+<td style="text-align:left">调用方式(这个我没理解)</td>
+<td style="text-align:left">手动</td>
+<td style="text-align:left">由react-redux生成</td>
+</tr>
+</tbody>
+</table>
+<p>上面贴了一张官网的图(http://www.redux.org.cn/docs/basics/UsageWithReact.html)，拿我们之前的 redux 例子来 架构一下吧~</p>
+<p>我们之前的 reducer 有什么内容呢？ 创造奇迹 和 通过成长改变人的状态 和 <s>添加女朋友(不存在的，已PASS)</s></p>
+<hr>
+
+</body>
+</html>
