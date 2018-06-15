@@ -45,5 +45,17 @@
 
 我们之前的 reducer 有什么内容呢？ 创造奇迹 和 通过成长改变人的状态 和 ~~添加女朋友(不存在的，已PASS)~~
 
+#### 展示组件
+* MiracleList：用于展示奇迹列表(可以被添加)
+    miracle: []  /  Array   ---- 结构 {text: ''}
+    method: 来自 App上层 传下来的  itemClick    -> `onClick = {() => this.props.itemClick(index)}`
+    > List中含有 index，由它来决定 参数
+* MiracleItem：专门展示奇迹事项
+    text: String
+    method: 来自 MiracleList 传下来的 onClick   ->  `onClick = {() => this.props.onClick()}`
+* 最顶层组件 Index：用于架构各种小罗罗
+    method：`onClick = {(index) => console.log(index)}` (基本的逻辑)
+* GrowStatus: 显示人类当前的成长年龄/状态(可以被改变)
+
 *  *  *
 
