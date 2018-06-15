@@ -1,30 +1,22 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import store from './redux/store';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import {YourLife} from './redux/reducer';
 
-import MiracleList from './simple/MiracleList';
-import MiracleItem from './simple/MiracleItem';
-import GrowStatus from './simple/GrowStatus';
+
+import HMiracleList from './higher/HMiracleList';
 
 import './reset.css';
 import './index.less';
 
-const testArray = [{
-    text: '123'
-}, {
-    text: 'test'
-}];
-
-const identify = "adult";
+let store = createStore(YourLife);
 
 class Index extends Component {
     render() {
-        return (<div>
-            <MiracleList list={testArray}
-                itemClick={(index) => console.log(index)}
-            />
-            <GrowStatus identify={identify} />
-        </div>)
+        return (<Provider store={store}>
+            <HMiracleList />
+        </Provider>)
     }
 }
 

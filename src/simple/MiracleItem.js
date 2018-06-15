@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class MiracleItem extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
     render() { 
         return ( <h3 onClick={() => this.props.onClick()}>
             <span>奇迹项目：</span>

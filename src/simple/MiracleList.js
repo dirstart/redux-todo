@@ -4,10 +4,6 @@ import PropTypes from 'prop-types';
 import MiracleItem from './MiracleItem';
 
 class MiracleList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
     render() { 
         return (<ul>
             {

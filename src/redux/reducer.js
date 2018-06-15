@@ -10,7 +10,11 @@ import {makeMiracle, startGrow} from './actions';
 // 人生的一开始，是一张白纸
 const whitePaper = {
     girlFriend: [],
-    miracle: [],
+    miracle: [{
+        text: 'user'
+    }, {
+        text: 'test'
+    }],
     identity: PEOPLETAG.child
 };
 
