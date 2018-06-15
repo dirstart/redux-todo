@@ -21,17 +21,19 @@
 * state里面的数据
 
 这里参考 react 小书的（要付钱哦）：http://huziketang.mangojuice.top/books/react/lesson28
-也可以直接看我代码 src 层的 higher/simple 中的 CreateHigher、UseHigher 文件。
+也可以直接看我代码 src 层的 higher/simple 中的 demoCreateHigher、demoUseHigher 文件。
 
-* CreateHigher：一个函数，参数是 （组件，需要从本地获取的属性），返回一个带 props 的组件。
+* demoCreateHigher：一个函数，参数是 （组件，需要从本地获取的属性），返回一个带 props 的组件。
 > 完成了获取本地数据的 逻辑。
 
-* UseHigher：先定义了一个组件，此后使用CreateHigher创建了一个我们真正需要的组件(相当于类的实例化)。
+* demoUseHigher：先定义了一个组件，此后使用demoCreateHigher创建了一个我们真正需要的组件(相当于类的实例化)。
 
 #### 总结：当有两个组件都需要从 本地 localStorage 加载相关的数据，上述的高阶组件就能很好地 实现逻辑的复用。复用的同时也将 获取数据的 逻辑和纯组件 解耦。
 > 一举两得。
 
 ### 2.然后我们通过对数据的剥离，构造纯组件，降低耦合性。
+
+### 其实可以这样理解：  容器组件 = 高阶组件(函数) 处理过后的 展示组件。=>也就是我们第一点说的 处理完逻辑 之后的展示组件。
 
 ||展示组件|容器组件|
 |:-|:-|:-|
@@ -58,6 +60,7 @@
 * GrowStatus: 显示人类当前的成长年龄/状态(可以被改变)
 
 #### 容器组件：其实这里主要是redux中的数据对 展示组价 中所需要的 数据的一种映射链接
+
 * MiracleInput：用于添加奇迹项目
 > 因为其和 redux 联系较多，所以这里将其放置在容器组件中
 

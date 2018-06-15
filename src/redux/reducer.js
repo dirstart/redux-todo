@@ -5,7 +5,6 @@
     让我们来制造规则吧。让 actions 不被白费。
 */
 import {GROW, MIRACLE, PEOPLETAG} from './actions';
-import {makeMiracle, startGrow} from './actions';
 
 // 人生的一开始，是一张白纸
 const whitePaper = {
