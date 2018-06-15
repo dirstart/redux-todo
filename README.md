@@ -50,14 +50,10 @@
 #### 展示组件
 * MiracleList：用于展示奇迹列表(可以被添加)
     miracle: []  /  Array   ---- 结构 {text: ''}
-    method: 来自 App上层 传下来的  itemClick    -> `onClick = {() => this.props.itemClick(index)}`
-    > List中含有 index，由它来决定 参数
+    method: itemClick(这里刚开始不用你redux的时候使我们写在app层测试的，但是用上 redux 后就用其对应的 高阶组件处理后传给它了)
 * MiracleItem：专门展示奇迹事项
     text: String
     method: 来自 MiracleList 传下来的 onClick   ->  `onClick = {() => this.props.onClick()}`
-* 最顶层组件 Index：用于架构各种小罗罗
-    method：`onClick = {(index) => console.log(index)}` (基本的逻辑)
-* GrowStatus: 显示人类当前的成长年龄/状态(可以被改变)
 
 #### 容器组件：其实这里主要是redux中的数据对 展示组价 中所需要的 数据的一种映射链接
 
@@ -69,3 +65,7 @@
 
 *  *  *
 
+
+## 完成了上面的步骤，其实我们就完成了 使用 redux 进行数据的 增加操作，其实这个时候我们已经基本能够使用 redux 了。
+
+完成的 redux 还请切换分支到  react-redux-all 哦~~~~~
