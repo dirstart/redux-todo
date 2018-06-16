@@ -5,17 +5,8 @@ import {Provider} from 'react-redux';
 
 import Wisdom from './simple/Wisdom';
 import {todoApp} from './redux/reducers';
-import SfTodoList from './simple/SfTodoList';
-import SfTodo from './simple/SfTodo';
-
-const todos = [{
-    text: 'test',
-    completed: false
-}];
-
-const itemClick = (index) => {
-    console.log(index);
-};
+import LinkTodoInput from './higher/LinkTodoInput';
+import LinkTodoList from './higher/LinkTodoList';
 
 let store = createStore(todoApp);
 
@@ -24,7 +15,8 @@ class Index extends Component {
         return ( <Provider store={store}>
             <div>
                 <Wisdom />
-                <SfTodoList todos={todos} itemClick={itemClick} />
+                <LinkTodoList />
+                <LinkTodoInput/>
             </div>
         </Provider> )
     }
