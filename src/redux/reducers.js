@@ -1,17 +1,12 @@
-#### 这一分支讲的是 如何完整地 搭建一个 增删改查的 react-redux 系统
+// redux 合成，将 管理显示 和 管理todos 分为两个reducer。
 
-#### 不同于上一节的 react-redux，这里主要采用 函数式组件。 函数式组件 = 函数式的写法 + 不需要state的组件。
-> 其实函数式组件也就那么回事。 如果组件本身 没有需要 维护的 state，我们就可以使用 函数式组件。
-
-
-#### redux的拆分 - 拆分之前
-```
 const defaultState = {
     filterType: 'ALL',
     todos: []
 };
 
-const todoApp = (state = defaultState, action) => {
+
+export const todoApp = (state = defaultState, action) => {
     switch(action.type) {
         case 'ADD_TODO':
             return Object.assign({}, state, {
@@ -31,4 +26,3 @@ const todoApp = (state = defaultState, action) => {
             return state;
     }
 };
-```

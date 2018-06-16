@@ -1,27 +1,32 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-import {YourLife} from './redux/reducer';
 
+import Wisdom from './simple/Wisdom';
+import {todoApp} from './redux/reducers';
+import {addTodo, setFilter} from './redux/actions';
 
-import HMiracleList from './higher/HMiracleList';
-import HMiracleInput from './higher/HMiracleInput';
+let store = createStore(todoApp);
 
-import './reset.css';
-import './index.less';
+const unsubscribe = store.subscribe(() => {
+    console.log(store.getState());
+});
 
-let store = createStore(YourLife);
+store.dispatch(addTodo('123'));
+store.dispatch(addTodo('ljflwfe'));
+store.dispatch(setFilter('partly'));
+
 
 class Index extends Component {
-    render() {
-        return (<Provider store={store}>
-            <div>
-                <HMiracleList />
-                <HMiracleInput />
-            </div>
-        </Provider>)
+    constructor(props) {
+        super(props);
+        this.state = {  }
+    }
+    render() { 
+        return ( <div>
+            <Wisdom />
+        </div> )
     }
 }
-
+ 
 ReactDOM.render(<Index />, document.getElementById('root'));
