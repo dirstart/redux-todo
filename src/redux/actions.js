@@ -15,9 +15,10 @@ export const setFilter = type => {
     }
 };
 
-export const toggleTodo = index => {
+export const toggleTodo = id => {
     return {
         type: 'TOGGLE_TODO',
+        id
     }
 };
 

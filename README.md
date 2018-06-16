@@ -1,7 +1,23 @@
 #### 这一分支讲的是 如何完整地 搭建一个 增删改查的 react-redux 系统
 
-#### 不同于上一节的 react-redux，这里主要采用 函数式组件。 函数式组件 = 函数式的写法 + 不需要state的组件。
+* 不同于上一节的 react-redux，这里主要采用 函数式组件。 函数式组件 = 函数式的写法 + 不需要state的组件。
 > 其实函数式组件也就那么回事。 如果组件本身 没有需要 维护的 state，我们就可以使用 函数式组件。
+
+* react-redux 的一部分难度来源于 connect，其实它就是一个。。。 高阶函数！就是我们上一节说的。
+    * 作用：连接React组件与 Redux store。
+    * connect之所以会成功，是因为Provider组件：在原应用组件上包裹一层，使原来整个应用成为Provider的子组件
+    * 其实它主要是一个链接函数，而它内部的参数是有固定格式的，比若说
+    
+        ```
+        connect([toProps函数，叫什么不重要], [mapDispatch函数], [mergeProps], [optiosn]);
+        toProps(state, ownProps) => 将 store 的数据映射到 props 上绑定。
+        toDispatch(dispatch, ownProps) => 将 action 的函数映射到 props 上绑定。
+        剩下两个一般不用。
+        ```
+
+* 还有一部分的难度在于 redux 的拆分，这个我放在最后面了，因为毕竟初学？慢慢来。
+
+* * *
 
 #### 一步一步的优化
 
