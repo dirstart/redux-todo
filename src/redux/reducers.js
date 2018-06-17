@@ -43,12 +43,13 @@ export const todoApp = (state = defaultState, action) => {
             });
         case 'CLEAR_TODOS':
             let newIndex = 0;
-            console.log('开始了一个新的轮回');
             const newTodos = Object.assign({}, state, {
                 todos: state.todos.filter(item => {
                     if (item.finished === false) {
                         item.id = newIndex++;
-                        return item;
+                        return true;
+                    } else {
+                        return false;
                     }
                 })
             });
