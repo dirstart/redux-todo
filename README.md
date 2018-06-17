@@ -9,3 +9,4 @@
 * 分支 only-redux-easy ：介绍一些 redux 并使用。 redux 还是非常简单的。
 * 分支 react-redux ：一个 react-redux 的上手例子，该例子并不算完整。
 * 分支 react-redux-all ：一个完整的 react-redux 例子。看完了前面两节可以观看该分支。
+* 分支 redux-async：比官网要简单的 redux 异步上手指南，超简单，只需要 20分钟就能学会！！！
