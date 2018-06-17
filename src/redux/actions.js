@@ -1,30 +1,34 @@
-// 原则上来说，使用的 type 应该用常量定义，如  const ADD_TODO = 'ADD_TODO';
-// 这里为了省一些代码
-
-export const addTodo = text => {
+// 发起请求
+export const startReq = () => {
     return {
-        type: 'ADD_TODO',
-        text
+        type: 'STARTREQ'
     };
 };
 
-export const setFilter = type => {
+// 收到请求后的响应
+export const receiveData = (data) => {
     return {
-        type: 'SET_FILTER',
-        filterType: type
+        type: 'RECEIVEDATA',
+        data
     };
 };
 
-export const toggleTodo = id => {
+// 请求失败
+export const errorReq = () => {
     return {
-        type: 'TOGGLE_TODO',
-        id
+        type: 'ERRORREQ'
     };
 };
 
-export const clearTodos = () => {
-    return {
-        type: 'CLEAR_TODOS'
+export const asyncGetData = () => {
+    return dispatch => {
+        dispatch(startReq());
+        fetch('https://www.easy-mock.com/mock/5b03c4ea05e00e7fd3cb3e66/example/mock')
+            .then(res => res.json(), err => console.log(err))
+            .then((data) => dispatch(receiveData(data)))
+            .catch((err) => {
+                console.log('错误原因:', err);
+                dispatch(errorReq());
+            });
     };
 };
-

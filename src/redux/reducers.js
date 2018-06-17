@@ -1,59 +1,23 @@
-// redux 合成，将 管理显示 和 管理todos 分为两个reducer。
-
-let nextId = JSON.parse(localStorage.getItem('todoId')) || 0;
-
-const _getTodos = () => {
-    return JSON.parse(localStorage.getItem('allTodos')) || [];
-};
-
-const _setTodos = (state, newId) => {
-    nextId = newId || nextId;
-    localStorage.setItem('todoId', nextId);
-    localStorage.setItem('allTodos', JSON.stringify(state.todos));
-    return state;
-};
-
-const defaultState = {
-    filterType: 'ALL',
-    todos: _getTodos()
-};
-
-export const todoApp = (state = defaultState, action) => {
+export const asyncReducer = (state = {
+    isLoading: false,
+    dataArray: []
+}, action) => {
     switch(action.type) {
-        case 'ADD_TODO':
-            return _setTodos(Object.assign({}, state, {
-                todos: [
-                    ...state.todos,
-                    {
-                        text: action.text,
-                        finished: false,
-                        id: nextId++
-                    }
-                ]
-            }));
-        case 'TOGGLE_TODO':
-            return _setTodos(Object.assign({}, state, {
-                todos: state.todos.map(item => item.id === action.id ?
-                    {...item, finished: !item.finished} : item
-                )
-            }));
-        case 'SET_FILTER':
+        case 'getData':
+            return 'test';
+        case 'STARTREQ':
             return Object.assign({}, state, {
-                filterType: action.filterType
+                isLoading: true
             });
-        case 'CLEAR_TODOS':
-            let newIndex = 0;
-            const newTodos = Object.assign({}, state, {
-                todos: state.todos.filter(item => {
-                    if (item.finished === false) {
-                        item.id = newIndex++;
-                        return true;
-                    } else {
-                        return false;
-                    }
-                })
+        case 'RECEIVEDATA':
+            return Object.assign({}, state, {
+                isLoading: false,
+                dataArray: action.data.data.projects || []
             });
-            return _setTodos(newTodos, newIndex);
+        case 'ERRORREQ':
+            return Object.assign({}, state, {
+                isLoading: false
+            });
         default:
             return state;
     }

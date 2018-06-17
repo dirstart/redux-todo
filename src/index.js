@@ -1,41 +1,32 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
-import {Provider, connect} from 'react-redux';
+import {createStore, applyMiddleware} from 'redux';
+import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
 
-import Wisdom from './simple/Wisdom';
-import {todoApp} from './redux/reducers';
-import LinkTodoInput from './higher/LinkTodoInput';
-import LinkTodoList from './higher/LinkTodoList';
-import LinkTodoFilter from './higher/LinkTodoFilter';
+import {asyncReducer} from './redux/reducers';
+import {asyncGetData} from './redux/actions';
 
-import {clearTodos} from './redux/actions';
+const store = createStore(
+    asyncReducer,
+    applyMiddleware(
+        thunk
+    )
+);
 
-let store = createStore(todoApp);
+const unsubscribe = store.subscribe(() => {
+    console.log(store.getState());
+});
 
-let LinkDelete = ({dispatch}) => {
-    return (
-        <button onClick={(e) => {e.preventDefault();dispatch(clearTodos())}}>clear</button>
-    );
-};
-
-LinkDelete = connect()(LinkDelete);
+store.dispatch(asyncGetData());
 
 class Index extends Component {
     render() { 
-        return ( <Provider store={store}>
+        return <Provider store={store}>
             <div>
-                <Wisdom />
-                <hr/>
-                <LinkTodoList />
-                <LinkTodoInput/>
-                <hr/>
-                <LinkTodoFilter filterType='ALL' />
-                <LinkTodoFilter filterType='END' />
-                <LinkTodoFilter filterType='START' />
-                <LinkDelete />
+                123
             </div>
-        </Provider> )
+        </Provider>
     }
 }
  
