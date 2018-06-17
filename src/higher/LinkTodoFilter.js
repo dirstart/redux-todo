@@ -10,9 +10,10 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        handleFilter: (filterType) => dispatch(setFilter(filterType))
-    }
-}
+        handleFilter: (filterType) => dispatch(setFilter(filterType)),
+        clearTodos: () => console.log('test')
+    };
+};
 
 const LinkTodoFilter = connect(
     mapStateToProps,

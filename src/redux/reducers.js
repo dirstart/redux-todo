@@ -2,16 +2,24 @@
 
 let nextId = 0;
 
-const defaultState = {
-    filterType: 'ALL',
-    todos: []
+const _getTodos = () => {
+    return JSON.parse(localStorage.getItem('allTodos')) || [];
 };
 
+const _setTodos = (state) => {
+    localStorage.setItem('allTodos', JSON.stringify(state.todos));
+    return state;
+};
+
+const defaultState = {
+    filterType: 'ALL',
+    todos: _getTodos()
+};
 
 export const todoApp = (state = defaultState, action) => {
     switch(action.type) {
         case 'ADD_TODO':
-            return Object.assign({}, state, {
+            return _setTodos(Object.assign({}, state, {
                 todos: [
                     ...state.todos,
                     {
@@ -20,7 +28,7 @@ export const todoApp = (state = defaultState, action) => {
                         id: nextId++
                     }
                 ]
-            });
+            }));
         case 'TOGGLE_TODO':
             return Object.assign({}, state, {
                 todos: state.todos.map(item => item.id === action.id ?
@@ -30,6 +38,10 @@ export const todoApp = (state = defaultState, action) => {
         case 'SET_FILTER':
             return Object.assign({}, state, {
                 filterType: action.filterType
+            });
+        case 'CLEAR_TODOS':
+            return Object.assign({}, state, {
+                todos: state.todos.filter(item => item.finished === false)
             });
         default:
             return state;

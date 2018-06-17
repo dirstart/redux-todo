@@ -3,20 +3,15 @@ import SfTodoList from '../simple/SfTodoList';
 import { toggleTodo } from '../redux/actions';
  
 const mapStateToProps = state => {
-    let todos = [];
     switch(state.filterType) {
         case 'START':
-            todos = state.todos.filter(item => !item.finished);
-            break;
+            return {todos: state.todos.filter(item => !item.finished)};
         case 'END':
-            todos = state.todos.filter(item => item.finished);
-            break;
+            return {todos: state.todos.filter(item => item.finished)};
         case 'ALL':
         default:
-            todos = state.todos;
+            return {todos: state.todos};
     }
-
-    return {todos};
 };
 
 const mapDispatchToProps = dispatch => {
