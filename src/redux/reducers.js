@@ -3,8 +3,6 @@ export const asyncReducer = (state = {
     dataArray: []
 }, action) => {
     switch(action.type) {
-        case 'getData':
-            return 'test';
         case 'STARTREQ':
             return Object.assign({}, state, {
                 isLoading: true
