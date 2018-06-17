@@ -10,7 +10,7 @@ class SfTodoList extends Component {
                     return <SfTodo
                         key={index}
                         todoItem={item}
-                        onClick={() => itemClick(index)}
+                        onClick={() => itemClick(item.id)}
                     />
                 })
             }
