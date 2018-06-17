@@ -24,6 +24,8 @@
 * 从 class 类的写法到 函数式的写法
 * 从集成的 reducer 到拆分的 reducer
 * 我们可以增加 保存在本地的 localStorage 来让我们的 app 更加真实一点
+> 转成localStorage的过程中要注意，之前写的 toggle 函数(simple组件)中的 index 和 id 需要改动。
+`onClick={() => itemClick(item.id)}`
 * 我们可以给我们的 App 添加上适当的样式，让其看起来真的想一个 todolist。
 
 #### 我所学到的新知识。

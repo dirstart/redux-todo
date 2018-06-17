@@ -1,13 +1,14 @@
 // redux 合成，将 管理显示 和 管理todos 分为两个reducer。
 
-let nextId = localStorage.getItem('todoId') || 0;
+let nextId = JSON.parse(localStorage.getItem('todoId')) || 0;
 
 const _getTodos = () => {
     return JSON.parse(localStorage.getItem('allTodos')) || [];
 };
 
 const _setTodos = (state, newId) => {
-    localStorage.setItem('todoId', newId || nextId);
+    nextId = newId || nextId;
+    localStorage.setItem('todoId', nextId);
     localStorage.setItem('allTodos', JSON.stringify(state.todos));
     return state;
 };
