@@ -15,7 +15,7 @@
         剩下两个一般不用。
         ```
 
-* 还有一部分的难度在于 redux 的拆分，这个我放在最后面了，因为毕竟初学？慢慢来。
+* 还有一部分的难度在于 redux 的拆分，这个官网已经有例子了，这里就不放代码啦。
 
 * * *
 
@@ -28,40 +28,9 @@
 `onClick={() => itemClick(item.id)}`
 * 我们可以给我们的 App 添加上适当的样式，让其看起来真的想一个 todolist。
 
-#### 我所学到的新知识。
+#### 其他
 * form表单提交的时候会刷新页面。如果不希望刷新的话，需要：
 > 例如，如果 type 属性是 "submit"，在事件传播的任意阶段可以调用任意的事件句柄，通过调用该方法，可以阻止提交表单。
 
-`e.preventDefault();` 可以阻止诸如 提交的默认事件。
-除此之外，`e.stopPropagation();` 可以阻止事件冒泡，顺带了解一下。
-
-* * *
-
-#### redux的拆分 - 拆分之前
-```
-const defaultState = {
-    filterType: 'ALL',
-    todos: []
-};
-
-const todoApp = (state = defaultState, action) => {
-    switch(action.type) {
-        case 'ADD_TODO':
-            return Object.assign({}, state, {
-                todos: [
-                    ...state.todos,
-                    {
-                        text: action.text,
-                        finished: false
-                    }
-                ]
-            });
-        case 'SET_FILTER':
-            return Object.assign({}, state, {
-                filterType: action.filterType
-            });
-        default:
-            return state;
-    }
-};
-```
+* `e.preventDefault();` 可以阻止诸如 提交的默认事件。
+* 除此之外，`e.stopPropagation();` 可以阻止事件冒泡，顺带了解一下。
