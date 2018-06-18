@@ -1,42 +1,25 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
-import {Provider, connect} from 'react-redux';
+import {Provider} from 'react-redux';
+import {HashRouter ,Switch, Route} from 'react-router-dom';
 
-import Wisdom from './simple/Wisdom';
 import {todoApp} from './redux/reducers';
-import LinkTodoInput from './higher/LinkTodoInput';
-import LinkTodoList from './higher/LinkTodoList';
-import LinkTodoFilter from './higher/LinkTodoFilter';
-
-import {clearTodos} from './redux/actions';
+import App from './App';
 
 let store = createStore(todoApp);
 
-let LinkDelete = ({dispatch}) => {
-    return (
-        <button onClick={(e) => {e.preventDefault();dispatch(clearTodos())}}>clear</button>
-    );
-};
-
-LinkDelete = connect()(LinkDelete);
 
 class Index extends Component {
-    render() { 
-        return ( <Provider store={store}>
-            <div>
-                <Wisdom />
-                <hr/>
-                <LinkTodoList />
-                <LinkTodoInput/>
-                <hr/>
-                <LinkTodoFilter filterType='ALL' />
-                <LinkTodoFilter filterType='END' />
-                <LinkTodoFilter filterType='START' />
-                <LinkDelete />
-            </div>
-        </Provider> )
+    render() {
+        return (<Provider store={store}>
+            <HashRouter>
+                <Switch>
+                    <Route exact path="/" component={App} />
+                </Switch>
+            </HashRouter>
+        </Provider>)
     }
-}
- 
+};
+
 ReactDOM.render(<Index />, document.getElementById('root'));
