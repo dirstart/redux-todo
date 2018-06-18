@@ -7,7 +7,7 @@ const _getTodos = () => {
 };
 
 const _setTodos = (state, newId) => {
-    nextId = newId || nextId;
+    nextId = typeof newId !== 'undefined' ? newId : nextId;
     localStorage.setItem('todoId', nextId);
     localStorage.setItem('allTodos', JSON.stringify(state.todos));
     return state;
