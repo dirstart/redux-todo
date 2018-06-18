@@ -15,7 +15,7 @@ class Index extends Component {
         return (<Provider store={store}>
             <HashRouter>
                 <Switch>
-                    <Route exact path="/" component={App} />
+                    <Route path="/" component={App} />
                 </Switch>
             </HashRouter>
         </Provider>)

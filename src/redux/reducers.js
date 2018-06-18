@@ -21,7 +21,8 @@ const defaultState = {
 export const todoApp = (state = defaultState, action) => {
     switch(action.type) {
         case 'ADD_TODO':
-            return _setTodos(Object.assign({}, state, {
+            return _setTodos({
+                ...state,
                 todos: [
                     ...state.todos,
                     {
@@ -30,20 +31,23 @@ export const todoApp = (state = defaultState, action) => {
                         id: nextId++
                     }
                 ]
-            }));
-        case 'TOGGLE_TODO':
-            return _setTodos(Object.assign({}, state, {
-                todos: state.todos.map(item => item.id === action.id ?
-                    {...item, finished: !item.finished} : item
-                )
-            }));
-        case 'SET_FILTER':
-            return Object.assign({}, state, {
-                filterType: action.filterType
             });
+        case 'TOGGLE_TODO':
+            return _setTodos({
+                ...state,
+                todos: state.todos.map(item => item.id === action.id ? {
+                    ...item, finished: !item.finished
+                } : item)
+            });
+        case 'SET_FILTER':
+            return {
+                ...state,
+                filterType: action.filterType
+            };
         case 'CLEAR_TODOS':
             let newIndex = 0;
-            const newTodos = Object.assign({}, state, {
+            const newTodos = {
+                ...state,
                 todos: state.todos.filter(item => {
                     if (item.finished === false) {
                         item.id = newIndex++;
@@ -52,7 +56,7 @@ export const todoApp = (state = defaultState, action) => {
                         return false;
                     }
                 })
-            });
+            };
             return _setTodos(newTodos, newIndex);
         default:
             return state;
